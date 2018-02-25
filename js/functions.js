@@ -57,7 +57,7 @@ var KEY = {
     ucanvas = get('upcoming'),
     uctx = ucanvas.getContext('2d'),
     speed = {
-        start: 0.6,
+        start: levels[indice].speed,
         decrement: 0.005,
         min: 0.1
     }, // how long before piece drops by 1 row (seconds)
@@ -235,6 +235,30 @@ function showStats() {
 function addEvents() {
     document.addEventListener('keydown', keydown, false);
     window.addEventListener('resize', resize, false);
+    document.getElementById("play").addEventListener("click", function(){
+        $('#tetris').toggleClass('hide');
+        $('#home').toggleClass('hide');
+        play();
+    });
+
+    $('#highscore-link').click(function() {
+        $('#highscore').toggleClass('hide');
+        $('#home').toggleClass('hide');
+        
+      });
+      
+    $('#back-home').click(function() {
+        $('#highscore').toggleClass('hide');
+        $('#home').toggleClass('hide');
+        
+      });
+
+            
+    $('#highscore').click(function() {
+        $('#highscore').toggleClass('hide');
+        $('#home').toggleClass('hide');
+        
+      });
 }
 
 function resize(event) {
@@ -285,11 +309,18 @@ function keydown(ev) {
 // LOGIC
 // -------------------------------------------------------------------------
 
+function setSpeed(){
+    speed.start = levels[indice].speed;
+}
 function play() {
+    setSpeed();
     hide('start');
     reset();
     playing = true;
 }
+
+
+
 function lose() {
     show('start');
     setVisualScore();
@@ -563,4 +594,3 @@ function drawBlock(ctx, x, y, color) {
     ctx.fillRect(x * dx, y * dy, dx, dy);
     ctx.strokeRect(x * dx, y * dy, dx, dy)
 }
-

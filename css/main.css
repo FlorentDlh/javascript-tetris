@@ -62,3 +62,28 @@ body {
     bottom: 0em;
     right: 1em;
 }
+
+.hide{
+    display:none;
+}
+
+.home-link > div{
+    text-transform: uppercase;
+}
+
+.prec, .suiv{
+    cursor: pointer;
+}
+
+#home{
+    border:1px solid;
+    text-align: center;
+}
+
+#home > h1 {
+    text-transform: uppercase;
+}
+
+#play,#prec,#suiv,#highscore-link, #back-home {
+    cursor : pointer;
+}
